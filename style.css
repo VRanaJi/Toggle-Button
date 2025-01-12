@@ -1,0 +1,235 @@
+*{
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*:focus{
+    outline: none;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #d60a0a;
+    background: linear-gradient(to right, #2b1a1a, #d60a0a);
+}
+
+#app-cover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    margin: 80px auto;
+}
+
+.toggle-button-cover{
+    position: relative;
+    width: 200px;
+    height: 140px;
+    box-sizing: border-box;
+}
+
+.button-cover{
+    height: 100px;
+    margin: 20px;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    box-shadow: 0 10px 20px -8px #c5d6d6;
+    border-radius: 4px;
+}
+
+.button-cover:before{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+}
+
+.button-cover, .knobs, .layer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button{
+    position: relative;
+    top: 50%;
+    width: 74px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+}
+
+.button.r, .button.r .layer{
+    border-radius: 100px;
+}
+
+.button.b2{
+    border-radius: 2px;
+}
+
+.checkbox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs{
+    z-index: 2;
+}
+
+.layer{
+    width: 100%;
+    background-color: #c5f0d2;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+#button-1 .knobs:before, #button-1 .knobs:after{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #1ee508;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-1 .knobs:before{
+    content: "YES";
+}
+
+#button-1 .knobs:after{
+    content: "NO";
+    top: -28px;
+    right: 4px;
+    left: auto;
+    background-color: #f44336;
+}
+
+#button-1 .checkbox:checked+.knobs:before{
+    top: -28px;
+}
+
+#button-1 .checkbox:checked+.knobs:after{
+    top: 4px;
+}
+
+#button-1 .checkbox:checked~.layer{
+    background-color: #fadcdc;
+}
+
+#button-2{
+    perspective: 60px;
+    overflow: visible;
+}
+
+#button-2 .knobs:before, #button-2 .knobs span{
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-2 .knobs:before{
+    background-color: #1ee508;
+}
+
+#button-2 .knobs span:before{
+    content: "YES";
+}
+
+#button-2 .knobs:before, #button-2 .layer{
+    transform: rotate(0);
+    transform-origin: center;
+}
+
+#button-2 .checkbox:checked+.knobs:before, #button-2 .checkbox:checked+.knobs span{
+    left: 42px;
+}
+
+#button-2 .checkbox:checked+.knobs:before{
+    transform: rotate(180deg);
+    background-color: #f44336;
+}
+
+#button-2 .checkbox:checked+.knobs span:before{
+    content: "NO";
+    left: 42px;
+}
+
+#button-2 .checkbox:checked~.layer{
+    background-color: #fadcdc;
+    transform: rotateY(-180deg);
+}
+
+#button-2 .knobs, #button-2 .knobs:before, #button-2 .layer{
+    transition: 0.3s ease all;
+}
+
+#button-3{
+    overflow: visible;
+}
+
+#button-3 .knobs:before{
+    content: "YES";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #1ee508;
+    border-radius: 50%;
+}
+
+#button-3 .knobs, #button-3 .knobs:before, #button-3 .layer{
+    transform: rotateZ(0);
+    transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-3 .checkbox:checked+.knobs{
+    transform: rotateZ(-180deg);
+}
+
+#button-3 .checkbox:checked+.knobs:before{
+    content: "NO";
+    background-color: #f44336;
+    transform: rotateZ(180deg);
+}
+
+#button-3 .checkbox:checked~.layer{
+    background-color: #fadcdc;
+}
